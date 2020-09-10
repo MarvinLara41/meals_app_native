@@ -1,0 +1,19 @@
+{
+  "name": "meals_app_native",
+  "version": "1.0.0",
+  "description": "a meal application built on react native",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinLara41/meals_app_native.git"
+  },
+  "author": "Marvin L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarvinLara41/meals_app_native/issues"
+  },
+  "homepage": "https://github.com/MarvinLara41/meals_app_native#readme"
+}
