@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/MarvinLara41/meals_app_native/issues"
   },
-  "homepage": "https://github.com/MarvinLara41/meals_app_native#readme"
+  "homepage": "https://github.com/MarvinLara41/meals_app_native#readme",
+  "dependencies": {}
 }
