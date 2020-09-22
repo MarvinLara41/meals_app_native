@@ -11,8 +11,15 @@ const CategoryMealsScreen = (props) => {
 				duration={itemData.item.duration}
 				complexity={itemData.item.complexity}
 				affordability={itemData.item.affordability}
-				image={itemData.item.imageUrl}
-				onSelectMeal={() => {}}
+				image={itemData.item.imgUrl}
+				onSelectMeal={() => {
+					props.navigation.navigate({
+						routeName: 'MealDetail',
+						params: {
+							mealId: itemData.item.id,
+						},
+					});
+				}}
 			/>
 		);
 	};
