@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/colors';
+
+import { setFilters } from '../store/actions/meals';
 
 const FilterSwitch = (props) => {
 	return (
@@ -30,17 +33,21 @@ const FiltersScreen = (props) => {
 	const [isVegan, setVegan] = useState(false);
 	const [isVegatarian, setVegatarian] = useState(false);
 
+	const dispatch = useDispatch();
+
 	const saveFilters = useCallback(() => {
 		/**Step 1 to update filter states */
 		const appliedFilters = {
+			/**keys set up here are the keys that are looked for in the reducer */
 			glutenFree: isGlutenFree,
 			lactoseFree: isLactoseFree,
 			vegan: isVegan,
 			vegetarian: isVegatarian,
 		};
-		console.log(appliedFilters);
+
+		dispatch(setFilters(appliedFilters));
 		/** Wrap useCallback around this function so saveFilters only updates when the state changes. In the array I specifiy which states will be tracked for change */
-	}, [isGlutenFree, isLactoseFree, isVegatarian, isVegan]);
+	}, [isGlutenFree, isLactoseFree, isVegatarian, isVegan, dispatch]);
 
 	useEffect(
 		() => {

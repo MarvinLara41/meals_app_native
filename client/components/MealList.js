@@ -1,9 +1,16 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import MealItem from './MealItem';
+import { useSelector } from 'react-redux';
 
 const MealList = (props) => {
+	/** accessing the global state */
+	const favoriteMeals = useSelector((state) => state.meals.favoriteMeals);
+
 	const renderMealItem = (itemData) => {
+		const isFavorite = favoriteMeals.some(
+			(meal) => meal.id === itemData.item.id
+		);
 		return (
 			<MealItem
 				title={itemData.item.title}
@@ -15,8 +22,10 @@ const MealList = (props) => {
 					props.navigation.navigate({
 						routeName: 'MealDetail',
 						params: {
+							/** accessing the paramaters set in the mealDetailsScreen, this renders these items beofre the screens load */
 							mealId: itemData.item.id,
 							mealTitle: itemData.item.title,
+							isFav: isFavorite,
 						},
 					});
 				}}
